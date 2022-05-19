@@ -1,0 +1,304 @@
+Question,Answer,Category,Level,Source
+What Is CAP Theorem?,"The CAP Theorem for distributed computing was published by Eric Brewer. This states that it is not possible for a distributed computer system to simultaneously provide all three of the following guarantees:
+
+Consistency (all nodes see the same data even at the same time with concurrent updates )
+Availability (a guarantee that every request receives a response about whether it was successful or failed)
+Partition tolerance (the system continues to operate despite arbitrary message loss or failure of part of the system)
+The CAP acronym corresponds to these three guarantees. This theorem has created the base for modern distributed computing approaches. Worlds most high volume traffic companies (e.g. Amazon, Google, Facebook) use this as basis for deciding their application architecture. It's important to understand that only two of these three conditions can be guaranteed to be met by a system.",Backend,Entry,https://www.fromdev.com/2013/07/architect-interview-questions-and-answers.html
+What REST stands for?,"REST stands for REpresentational State Transfer. REST is web standards based architecture and uses HTTP Protocol for data communication. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. REST was first introduced by Roy Fielding in 2000.
+
+In REST architecture, a REST Server simply provides access to resources and REST client accesses and presents the resources. Here each resource is identified by URIs/ global IDs. REST uses various representations to represent a resource like text, JSON and XML. Now a days JSON is the most popular format being used in web services.
+",Backend,Entry,https://www.tutorialspoint.com/restful/restful_interview_questions.htm
+What are NoSQL databases? What are the different types of NoSQL databases?,"A NoSQL database provides a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases (like SQL, Oracle, etc.).
+
+Types of NoSQL databases:
+
+Document Oriented
+Key Value
+Graph
+Column Oriented",Backend,Entry,https://interviewbubble.com/advance-topics/mongodb-interview-questions-and-answers/
+ What do you understand by NoSQL databases? Explain.,"At the present time, the internet is loaded with big data, big users, big complexity etc. and also becoming more complex day by day. NoSQL is answer of all these problems; It is not a traditional database management system, not even a relational database management system (RDBMS). NoSQL stands for “Not Only SQL”. NoSQL is a type of database that can handle and sort all type of unstructured, messy and complicated data. It is just a new way to think about the database.",Backend,Entry,https://medium.com/@hub4tech/list-of-top-10-mongodb-interview-questions-for-beginners-and-professionals-ee385b9c501b
+What is SQL injection?,"Injection attacks stem from a lack of strict separation between program instructions (i.e., code) and user-provided (or external) input. This allows an attacker to inject malicious code into a data snippet.
+
+SQL injection is one of the most common types of injection attack. To carry it out, an attacker provides malicious SQL statements through the application.
+
+How to prevent:
+
+Prepared statements with parameterized queries
+Stored procedures
+Input validation - blacklist validation and whitelist validation
+Principle of least privilege - Application accounts shouldn’t assign DBA or admin type access onto the database server. This ensures that if an application is compromised, an attacker won’t have the rights to the database through the compromised application.",Backend,Entry,https://www.synopsys.com/software-integrity/resources/knowledge-database/sql-injection.html
+What is meant by Continuous Integration?,"Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early.",Backend,Entry,https://www.edureka.co/blog/interview-questions/top-devops-interview-questions-2016/
+Compare SQL databases and MongoDB at a high level,"SQL databases store data in form of tables, rows, columns and records. This data is stored in a pre-defined data model which is not very much flexible for today's real-world highly growing applications. MongoDB in contrast uses a flexible structure which can be easily modified and extended.",Backend,Junior,https://www.tutorialspoint.com/mongodb/mongodb_interview_questions.htm
+Difference between acceptance test and functional test?,"Functional testing: This is a verification activity; did we build a correctly working product? Does the software meet the business requirements? A functional test verifies that the product actually works as you (the developer) think it does.
+
+Acceptance testing: This is a validation activity; did we build the right thing? Is this what the customer really needs? Acceptance tests verify the product actually solves the problem it was made to solve. This can best be done by the user (customer), for instance performing his/her tasks that the software assists with.",Backend,Junior,https://stackoverflow.com/questions/3370334/difference-between-acceptance-test-and-functional-test
+How to mitigate the SQL Injection risks?,"To mitigate SQL injection:
+
+Prepared Statements with Parameterized Queries: Always ensure that your SQL interpreter always able to differentiate between code and data. Never use dynamic queries which fail to find the difference between code and data. Instead, use static SQL query and then pass in the external input as a parameter to query.  Use of Prepared Statements (with Parameterized Queries) force developer to first define all the SQL code, and then pass in each parameter to the query later.
+Use of Stored Procedures: Stored Procedure is like a function in C where database administrator call it whenever he/she need it. It is not completely mitigated SQL injection but definitely helps in reducing risks of SQL injection by avoiding dynamic SQL generation inside.
+White List Input Validation: Always use white list input validation and allow only preapproved input by the developer. Never use blacklist approach as it is less secure than whitelist approach.
+Escaping All User Supplied Input
+Enforcing Least Privilege",Backend,Junior,https://career.guru99.com/top-14-owasp-interview-questions/
+Name some performance testing steps,"Some of the performance testing steps are:
+
+Identify the testing environment
+Identify performance metrics
+Plan and design performance tests
+Configure the test environment
+Implement your test design
+Execute tests
+Analyze, report, retest",Backend,Junior,https://stackify.com/ultimate-guide-performance-testing-and-software-testing/
+What are some advantages of using Go?,"Go is an attempt to introduce a new, concurrent, garbage-collected language with fast compilation and the following benefits:
+
+It is possible to compile a large Go program in a few seconds on a single computer.
+Go provides a model for software construction that makes dependency analysis easy and avoids much of the overhead of C-style include files and libraries.
+Go's type system has no hierarchy, so no time is spent defining the relationships between types. Also, although Go has static types, the language attempts to make types feel lighter weight than in typical OO languages.
+Go is fully garbage-collected and provides fundamental support for concurrent execution and communication.
+By its design, Go proposes an approach for the construction of system software on multicore machines.",Backend,Junior,https://golang.org/doc/faq
+What are the advantages of Web Services?,"Some of the advantages of web services are:
+
+Interoperability: Web services are accessible over network and runs on HTTP/SOAP protocol and uses XML/JSON to transport data, hence it can be developed in any programming language. Web service can be written in java programming and client can be PHP and vice versa.
+Reusability: One web service can be used by many client applications at the same time.
+Loose Coupling: Web services client code is totally independent with server code, so we have achieved loose coupling in our application.
+Easy to deploy and integrate, just like web applications.
+Multiple service versions can be running at same time.",Backend,Junior,https://www.journaldev.com/9193/web-services-interview-questions-soap-restful
+What are the benefits of using Go programming?,"Following are the benefits of using Go programming:
+
+Support for environment adopting patterns similar to dynamic languages. For example type inference (x := 0 is valid declaration of a variable x of type int).
+Compilation time is fast.
+In built concurrency support: light-weight processes (via goroutines), channels, select statement.
+Conciseness, Simplicity, and Safety.
+Support for Interfaces and Type embedding.
+The go compiler supports static linking. All the go code can be statically linked into one big fat binary and it can be deployed in cloud servers easily without worrying about dependencies.",Backend,Junior,https://www.tutorialspoint.com/go/go_interview_questions.htm
+What does Containerization mean?,"Containerisation is a type of virtualization strategy that emerged as an alternative to traditional hypervisor-based virtualization.
+
+In containerization, the operating system is shared by the different containers rather than cloned for each virtual machine. For example Docker provides a container virtualization platform that serves as a good alternative to hypervisor-based arrangements.
+",Backend,Junior,https://linoxide.com/linux-how-to/devops-interview-questions-answers/
+Why Would You Opt For Microservices Architecture?,"There are plenty of pros that are offered by Microservices architecture. Here are a few of them:
+
+Microservices can adapt easily to other frameworks or technologies.
+Failure of a single process does not affect the entire system.
+Provides support to big enterprises as well as small teams.
+Can be deployed independently and in relatively less time.",Backend,Junior,https://www.lambdatest.com/blog/top-29-microservices-interview-questions-for-2019/
+Name some Performance Testing best practices,"Test as early as possible in development.
+Conduct multiple performance tests to ensure consistent findings and determine metrics averages.
+Test the individual software units separately as well as together
+Baseline measurements provide a starting point for determining success or failure
+Performance tests are best conducted in test environments that are as close to the production systems as possible
+Isolate the performance test environment from the environment used for quality assurance testing
+Keep the test environment as consistent as possible
+Calculating averages will deliver actionable metrics. There is value in tracking outliers also. Those extreme measurements could reveal possible failures.",Backend,Mid,https://stackify.com/ultimate-guide-performance-testing-and-software-testing/
+What Do You Mean By High Availability (HA)?,"Availability means the ability of the application user to access the system, If a user cannot access the application, it is assumed unavailable. High Availability means the application will be available, without interruption. Using redundant server nodes with clustering is a common way to achieve higher level of availability in web applications.
+
+Availability is commonly expressed as a percentage of uptime in a given year.",Backend,Mid,https://www.fromdev.com/2013/07/architect-interview-questions-and-answers.htmll
+What Is ACID Property Of A System?,"ACID is a acronym which is commonly used to define the properties of a relational database system, it stand for following terms
+
+Atomicity - This property guarantees that if one part of the transaction fails, the entire transaction will fail, and the database state will be left unchanged.
+Consistency - This property ensures that any transaction will bring the database from one valid state to another.
+Isolation - This property ensures that the concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially.
+Durable - means that once a transaction has been committed, it will remain so, even in the event of power loss.",Backend,Mid,https://www.fromdev.com/2013/07/architect-interview-questions-and-answers.html
+"What Is Sticky Session Load Balancing? What Do You Mean By ""Session Affinity""?","Sticky session or a session affinity technique is another popular load balancing technique that requires a user session to be always served by an allocated machine.
+
+In a load balanced server application where user information is stored in session it will be required to keep the session data available to all machines. This can be avoided by always serving a particular user session request from one machine. The machine is associated with a session as soon as the session is created. All the requests in a particular session are always redirected to the associated machine. This ensures the user data is only at one machine and load is also shared.
+
+This is typically done by using SessionId cookie. The cookie is sent to the client for the first request and every subsequent request by client must be containing that same cookie to identify the session.
+
+What Are The Issues With Sticky Session?
+
+There are few issues that you may face with this approach
+
+The client browser may not support cookies, and your load balancer will not be able to identify if a request belongs to a session. This may cause strange behavior for the users who use no cookie based browsers.
+In case one of the machine fails or goes down, the user information (served by that machine) will be lost and there will be no way to recover user session.",Backend,Mid,https://www.fromdev.com/2013/07/architect-interview-questions-and-answers.html
+What are disadvantages of REST web services?,"Some of the disadvantages of REST are:
+
+Since there is no contract defined between service and client, it has to be communicated through other means such as documentation or emails.
+Since it works on HTTP, there can’t be asynchronous calls.
+Sessions can’t be maintained.",Backend,Mid,https://www.journaldev.com/9193/web-services-interview-questions-soap-restful
+What are the DRY and DIE principles?,"In software engineering, Don't Repeat Yourself (DRY) or Duplication is Evil (DIE) is a principle of software development.",Backend,Mid,https://en.wikipedia.org/wiki/KISS_principle
+What are the difference between Clustered and a Non-clustered index?,"With a Clustered index the rows are stored physically on the disk in the same order as the index. Therefore, there can be only one clustered index. A clustered index means you are telling the database to store close values actually close to one another on the disk.
+With a Non Clustered index there is a second list that has pointers to the physical rows. You can have many non clustered indices, although each new index will increase the time it takes to write new records.
+It is generally faster to read from a clustered index if you want to get back all the columns. You do not have to go first to the index and then to the table.
+Writing to a table with a clustered index can be slower, if there is a need to rearrange the data.",Backend,Mid,https://stackoverflow.com/questions/1251636/what-do-clustered-and-non-clustered-index-actually-mean
+"What are the differences between continuous integration, continuous delivery, and continuous deployment?","Developers practicing continuous integration merge their changes back to the main branch as often as possible. By doing so, you avoid the integration hell that usually happens when people wait for release day to merge their changes into the release branch.
+Continuous delivery is an extension of continuous integration to make sure that you can release new changes to your customers quickly in a sustainable way. This means that on top of having automated your testing, you also have automated your release process and you can deploy your application at any point of time by clicking on a button.
+Continuous deployment goes one step further than continuous delivery. With this practice, every change that passes all stages of your production pipeline is released to your customers. There's no human intervention, and only a failed test will prevent a new change to be deployed to production.",Backend,Mid,https://www.atlassian.com/continuous-delivery/ci-vs-ci-vs-cd
+"What is the difference between Monolithic, SOA and Microservices Architecture?","Monolithic Architecture is similar to a big container wherein all the software components of an application are assembled together and tightly packaged.
+A Service-Oriented Architecture is a collection of services which communicate with each other. The communication can involve either simple data passing or it could involve two or more services coordinating some activity.
+Microservice Architecture is an architectural style that structures an application as a collection of small autonomous services, modeled around a business domain.",Backend,Mid,https://www.edureka.co/blog/interview-questions/microservices-interview-questions/
+What is the difference between JOIN and UNION?,"UNION puts lines from queries after each other, while JOIN makes a cartesian product and subsets it -- completely different operations. Trivial example of UNION:
+
+mysql> SELECT 23 AS bah
+    -> UNION
+    -> SELECT 45 AS bah;
++-----+
+| bah |
++-----+
+|  23 |
+|  45 |
++-----+
+2 rows in set (0.00 sec)
+similary trivial example of JOIN:
+
+mysql> SELECT * FROM
+    -> (SELECT 23 AS bah) AS foo
+    -> JOIN
+    -> (SELECT 45 AS bah) AS bar
+    -> ON (33=33);
++-----+-----+
+| foo | bar |
++-----+-----+
+|  23 |  45 |
++-----+-----+
+1 row in set (0.01 sec)
+Having Tech or Coding Interview? Check 👉 42 SQL Interview Questions
+Source: stackoverflow.com
+27 Advanced Swift Interview Questions (SOLVED) iOS Developers Must Know
+27 Advanced Swift Interview Questions (SOLVED) iOS Developers Must Know
+Top 72 Swift Interview Questions  Swift  72  
+Q26: What is the difference between WHERE clause and HAVING clause?
+Mid 
+Top 42 SQL Interview Questions  SQL  42  
+Answer
+WHERE clause introduces a condition on individual rows; HAVING clause introduces a condition on aggregations, i.e. results of selection where a single result, such as count, average, min, max, or sum, has been produced from multiple rows. Your query calls for a second kind of condition (i.e. a condition on an aggregation) hence HAVING works correctly.
+
+As a rule of thumb, use WHERE before GROUP BY and HAVING after GROUP BY. It is a rather primitive rule, but it is useful in more than 90% of the cases.
+
+While you're at it, you may want to re-write your query using ANSI version of the join:
+
+SELECT  L.LectID, Fname, Lname
+FROM Lecturers L
+JOIN Lecturers_Specialization S ON L.LectID=S.LectID
+GROUP BY L.LectID, Fname, Lname
+HAVING COUNT(S.Expertise)>=ALL
+(SELECT COUNT(Expertise) FROM Lecturers_Specialization GROUP BY LectID)
+This would eliminate WHERE that was used as a theta join condition.
+",Backend,Mid,https://stackoverflow.com/questions/9253244/sql-having-vs-where/9253267
+Explain what is the API Gateway pattern,"An API Gateway is a server that is the single entry point into the system. It is similar to the Facade pattern from object‑oriented design. The API Gateway encapsulates the internal system architecture and provides an API that is tailored to each client. It might have other responsibilities such as authentication, monitoring, load balancing, caching, request shaping and management, and static response handling.
+
+
+
+A major benefit of using an API Gateway is that it encapsulates the internal structure of the application. Rather than having to invoke specific services, clients simply talk to the gateway.",Backend,Senior,https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
+How does SSL/TLS work ?,"SSL (and its successor, TLS) is a protocol that operates directly on top of TCP. This way, protocols on higher layers (such as HTTP) can be left unchanged while still providing a secure connection. Underneath the SSL layer, HTTP is identical to HTTPS. When using SSL/TLS correctly, all an attacker can see on the cable is which IP and port you are connected to, roughly how much data you are sending, and what encryption and compression is used. He can also terminate the connection, but both sides will know that the connection has been interrupted by a third party.
+
+After building a TCP connection, the SSL handshake is started by the client that sends a number of specifications:
+which version of SSL/TLS it is running,
+what ciphersuites it wants to use, and
+what compression methods it wants to use.
+The server checks what the highest SSL/TLS version is that is supported by them both, picks a ciphersuite from one of the client's options (if it supports one), and optionally picks a compression method.
+After this the basic setup is done, the server sends its certificate. This certificate must be trusted by either the client itself or a party that the client trusts. Having verified the certificate and being certain this server really is who he claims to be (and not a man in the middle), a key is exchanged. The client tells the server that from now on, all communication will be encrypted, and sends an encrypted and authenticated message to the server.
+The server verifies that the MAC (used for authentication) is correct, and that the message can be correctly decrypted. It then returns a message, which the client verifies as well.
+The handshake is now finished, and the two hosts can communicate securely.",Backend,Senior,https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work
+How does B-trees Index work?,"The main reason for the existence of B-Tree Indexes is to better utilize the behaviour of devices that read and write large chunks of data. Two properties are important to make the B-Tree better than binary trees when data has to be stored on disk:
+
+Access to disk is really slow (compared to memory or caches, random access to data on disk is orders of magnitude slower); and
+Every single read causes a whole sector to be loaded from the drive - assuming a sector size of 4K, this means 1000 integers, or tens of some larger objects you're storing.
+Hence, we can use the pros of the second fact, while also minimizing the cons - i.e. number of disk accesses.
+
+So, instead of just storing a single number in every node that tells us if we should continue to the left or to the right, we can create a bigger index that tells us if we should continue to the first 1/100, to the second or to the 99-th (imagine books in a library sorted by their first letter, then by the second, and so on). As long as all this data fits on a single sector, it will be loaded anyway, so we might as well use it completely.
+
+This results in roughly logb N lookups, where N is the number of records. This number, while asymptotically the same as log2 N, is actually a few times smaller with large enough N and b - and since we're talking about storing data to disk for use in databases, etc., the amount of data is usually large enough to justify this.
+",Backend,Senior,https://stackoverflow.com/questions/12819049/why-do-we-need-a-separate-datastructure-like-b-tree-for-database-and-file-system
+What Is BASE Property Of A System?,"BASE properties are the common properties of recently evolved NoSQL databases. According to CAP theorem, a BASE system does not guarantee consistency. This is a contrived acronym that is mapped to following property of a system in terms of the CAP theorem:
+
+Basically available indicates that the system is guaranteed to be available
+Soft stateindicates that the state of the system may change over time, even without input. This is mainly due to the eventually consistent model.
+Eventual consistency indicates that the system will become consistent over time, given that the system doesn't receive input during that time.",Backend,Senior,https://www.fromdev.com/2013/07/architect-interview-questions-and-answers.html
+What do you understand by Distributed Transaction?,"Distributed Transaction is any situation where a single event results in the mutation of two or more separate sources of data which cannot be committed atomically. In the world of microservices, it becomes even more complex as each service is a unit of work and most of the time multiple services have to work together to make a business successful.
+",Backend,Senior,https://www.edureka.co/blog/interview-questions/microservices-interview-questions//
+What is GOD class and why should we avoid it?,The most effective way to break applications it to create GOD classes. That are classes that keeps track of a lot of information and have several responsibilities. One code change will most likely affect other parts of the class and therefore indirectly all other classes that uses it. That in turn leads to an even bigger maintenance mess since no one dares to do any changes other than adding new functionality to it.,Backend,Senior,https://stackoverflow.com/questions/10620022/what-is-an-example-of-the-single-responsibility-principle
+What is Spike Testing?,Spike testing is a type of stress testing that evaluates software performance when workloads are substantially increased quickly and repeatedly. The workload is beyond normal expectations for short amounts of time.,Backend,Senior,https://stackify.com/ultimate-guide-performance-testing-and-software-testing//
+" What's the difference between faking, mocking, and stubbing?","Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production
+
+Stubs provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test. Stubs may also record information about calls, such as an email gateway stub that remembers the messages it 'sent', or maybe only how many messages it 'sent'.
+
+Mocks are what we are talking about here: objects pre-programmed with expectations which form a specification of the calls they are expected to receive.",Backend,Senior,https://stackoverflow.com/questions/346372/whats-the-difference-between-faking-mocking-and-stubbing
+What's the difference between principles YAGNI and KISS?,"YAGNI (You aint gona need it) refers to over analyzing and implementing things that may or may not be needed. Sure algorithmic elegance is nice and all but most situation you dont need it. In general engineering terms you should be carefull not to include your own requirements so that you dont taint your customer needs with your own ideas that end up costing the project with little impact for the client.
+
+KISS (Keep it simple stupid) refers to the fact that easy systems are easier to manage. Keeping things simple is not nesseserily less work (like YAGNI is) since it requires more knowlege to implement. They are sometimes similar but grow from different needs.
+
+YAGNI grows from a too much future anticipation, overzealous workers if you may. KISS is a strategy that tries to counteract human tendency for design creep.",Backend,Senior,https://stackoverflow.com/questions/25999724/whats-the-difference-between-principles-yagni-and-kiss?r=SearchResults
+When to use Redis or MongoDB?,"Use MongoDB if you don't know yet how you're going to query your data or what schema to stick with. MongoDB is suited for Hackathons, startups or every time you don't know how you'll query the data you inserted. MongoDB does not make any assumptions on your underlying schema. While MongoDB is schemaless and non-relational, this does not mean that there is no schema at all. It simply means that your schema needs to be defined in your app (e.g. using Mongoose). Besides that, MongoDB is great for prototyping or trying things out. Its performance is not that great and can't be compared to Redis.
+
+Use Redis in order to speed up your existing application. It is very uncommon to use Redis as a standalone database system (some people prefer referring to it as a ""key-value""-store).
+",Backend,Senior,https://stackoverflow.com/questions/5400163/when-to-redis-when-to-mongodb
+Why layering your application is important? Provide some bad layering example.,"Each component should contain 'layers' - a dedicated object for the web, logic and data access code. This not only draws a clean separation of concerns but also significantly eases mocking and testing the system.
+
+Though this is a very common pattern, API developers tend to mix layers by passing the web layer objects (for example Express req, res) to business logic and data layers - this makes your application dependant on and accessible by Express only. App that mixes web objects with other layers can not be accessed by testing code, CRON jobs and other non-Express callers",Backend,Senior,https://github.com/i0natan/nodebestpractices/blob/master/sections/production/LTSrelease.md
+ Are you familiar with The Twelve-Factor App principles?,"The Twelve-Factor App methodology is a methodology for building software as a service applications. These best practices are designed to enable applications to be built with portability and resilience when deployed to the web.
+
+Codebase - There should be exactly one codebase for a deployed service with the codebase being used for many deployments.
+Dependencies - All dependencies should be declared, with no implicit reliance on system tools or libraries.
+Config - Configuration that varies between deployments should be stored in the environment.
+Backing services All backing services are treated as attached resources and attached and detached by the execution environment.
+Build, release, run - The delivery pipeline should strictly consist of build, release, run.
+Processes - Applications should be deployed as one or more stateless processes with persisted data stored on a backing service.
+Port binding - Self-contained services should make themselves available to other services by specified ports.
+Concurrency - Concurrency is advocated by scaling individual processes.
+Disposability - Fast startup and shutdown are advocated for a more robust and resilient system.
+Dev/Prod parity - All environments should be as similar as possible.
+Logs - Applications should produce logs as event streams and leave the execution environment to aggregate.
+Admin Processes - Any needed admin tasks should be kept in source control and packaged with the application.",Backend,Expert,https://12factor.net/
+How would you implement SSO for Microservice Architecture?,"Add identity service and authorize service access through it using tokens. Any service that has protected resources will talk to the Identity service to make sure the credentials (token) it has are valid. If they are not it will redirect the user for authentication. Once the token had been validated then it could be saved in the session so subsequent calls in the user's session did not have to make the additional call. You can also create a scheduled job if tokens need to be refreshed in that session.
+
+A good way to resolve it is by using the OAuth 2 protocol. In this situation you could authenticate with an OAuth 2.0 endpoint and the token will be added to the HTTP header for calls to your domain. All of the services shall be routed from that domain so you could get the token from the HTTP header.",Backend,Expert,https://stackoverflow.com/questions/25595492/single-sign-on-in-microservice-architecture
+Name some best practices for better RESTful API design,"Use nouns and HTTP methods but no verbs
+GET /cars
+POST /cars
+DELETE /cars/:id
+instead
+GET /getAllCars
+POST /createNewCar
+GET /deleteAllRedCars
+GET method and query parameters should not alter the state
+Use plural nouns
+/cars instead of /car
+/users instead of /user
+/products instead of /product
+/settings instead of /setting
+Use sub-resources for relations
+GET /cars/711/drivers/ Returns a list of drivers for car 711
+GET /cars/711/drivers/4 Returns driver #4 for car 711
+Use HTTP headers for serialisation formats
+Content-Type defines the request format.
+Accept defines a list of acceptable response formats.
+Use HATEOAS - Hypermedia as the Engine of Application State is a principle that hypertext links should be used to create a better navigation through the API.
+{
+	""id"": 711,
+	""manufacturer"": ""bmw"",
+	""model"": ""X5"",
+	""seats"": 5,
+	""drivers"": [{
+		""id"": ""23"",
+		""name"": ""Stefan Jauker"",
+		""links"": [{
+			""rel"": ""self"",
+			""href"": ""/api/v1/drivers/23""
+		}]
+	}]
+}
+Use appropriate HTTP response status codes
+2xx (Success category)
+3xx (Redirection Category)
+4xx (Client Error Category)
+5xx (Server Error Category)
+
+Provide filtering, sorting, field selection and paging for collections
+
+GET /cars?color=red Returns a list of red cars
+GET /cars?seats<=2 Returns a list of cars with a maximum of 2 seats
+Version your API
+/blog/api/v1
+Use error payloads - All exceptions should be mapped in an error payload.
+{
+	""errors"": [{
+		""userMessage"": ""Sorry, the requested resource does not exist"",
+		""internalMessage"": ""No car found in the database"",
+		""code"": 34,
+		""more info"": ""http://dev.mwaysolutions.com/blog/api/v1/errors/12345""
+	}]
+}
+Allow overriding HTTP method
+
+In certain situations (for example, when the service or its consumers are behind an overzealous corporate firewall, or if the main consumer is a web page), only the GET and POST HTTP methods might be available. In such a case, it is possible to emulate the missing verbs by passing a custom header in the requests. To support a RESTful API with these limitations, the API needs a way to override the HTTP method and use the custom HTTP Header X-HTTP-Method-Override to map the request to an appropriate API method.
+",Backend,Expert,https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/

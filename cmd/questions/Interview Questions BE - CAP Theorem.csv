@@ -1,0 +1,54 @@
+Question,Answer,Category,Level,Source
+What Is CAP Theorem?,"The CAP Theorem for distributed computing was published by Eric Brewer. This states that it is not possible for a distributed computer system to simultaneously provide all three of the following guarantees:
+Consistency (all nodes see the same data even at the same time with concurrent updates )
+Availability (a guarantee that every request receives a response about whether it was successful or failed)
+Partition tolerance (the system continues to operate despite arbitrary message loss or failure of part of the system)
+The CAP acronym corresponds to these three guarantees. This theorem has created the base for modern distributed computing approaches. Worlds most high volume traffic companies (e.g. Amazon, Google, Facebook) use this as basis for deciding their application architecture. It's important to understand that only two of these three conditions can be guaranteed to be met by a system.",CAP Theorem,Entry,https://www.fromdev.com/2013/07/architect-interview-questions-and-answers.html
+Why is CAP Theorem true?  ,"It's proofed by construction. Basically we demonstrate a single situation where a system cannot be consistent and available in the same time:
+If a client writes to one side of a partition, any reads that go to the other side of that partition can't possibly know about the most recent write. Now you're faced with a choice: do you respond to the reads with potentially stale information, or do you wait (potentially forever) to hear from the other side of the partition and compromise availability?",CAP Theorem,Mid,https://github.com/henryr/cap-faq
+What does the CAP Theorem actually say?  ,"The CAP Theorem says that it is impossible to build an implementation of read-write storage/system in an asynchronous network that satisfies all of the following three properties:
+Availability - will a request made to the data store always eventually complete?
+Consistency - will all executions of reads and writes seen by all nodes be atomic or linearizably consistent?
+Partition tolerance - the network is allowed to drop any messages.
+More informally, the CAP theorem tells us that we can't build a database/system that both responds to every request and returns the results that you would expect every time.",CAP Theorem,Mid,https://github.com/henryr/cap-faq
+Can you 'got around' or 'beat' the CAP Theorem?  ,No. You might have designed a system that is not heavily affected by it. That's good.,CAP Theorem,Mid,https://github.com/henryr/cap-faq
+What is a Partition in CAP Theorem?  ,"One such fallacy of distributed computing is that networks are reliable. They aren't. Networks and parts of networks go down frequently and unexpectedly.
+A partition is when the network fails to deliver some messages to one or more nodes by losing them (not by delaying them - eventual delivery is not a partition).
+The basic idea of CAP proof is that if a client writes to one side of a partition (namely, network fails), any reads that go to the other side of that partition can't possibly know about the most recent write. The proof of CAP relied on a total partition. In practice, these are arguably the most likely since all messages may flow through one component; if that fails then message loss is usually total between two nodes.",CAP Theorem,Mid,https://github.com/henryr/cap-faq
+What are A and P in CAP and the difference between them?  ,"Problem
+I get a feeling that A and P can go together (I know this is not the case, and that's why I fail to understand!). Explaining in simple terms, what are A and P and the difference between them?
+Answer
+Consistency means that data is the same across the cluster, so you can read or write from/to any node and get the same data.
+Availability means the ability to access the cluster even if a node in the cluster goes down.
+Partition tolerance means that the cluster continues to function even if there is a ""partition"" (communication break) between two nodes (both nodes are up, but can't communicate).
+If you have both availability (the cluster doesn't go down) and partition tolerance (the database can survive nodes being unable to communicate), then you can't guarantee that all nodes will always have all the data (consistency), because nodes are up and accepting writes, but can't communicate those writes to each other.",CAP Theorem,Mid,https://stackoverflow.com/questions/12346326/cap-theorem-availability-and-partition-tolerance
+Name some types of Consistency patterns  ,"With multiple copies of the same data, we are faced with options on how to synchronize them so clients have a consistent view of the data:
+Weak consistency - After a write, reads may or may not see it. A best effort approach is taken. This approach is seen in systems such as memcached. Weak consistency works well in real time use cases such as VoIP, video chat, and realtime multiplayer games. For example, if you are on a phone call and lose reception for a few seconds, when you regain connection you do not hear what was spoken during connection loss.
+Eventual consistency - After a write, reads will eventually see it (typically within milliseconds). Data is replicated asynchronously. This approach is seen in systems such as DNS and email. Eventual consistency works well in highly available systems.
+Strong consistency - After a write, reads will see it. Data is replicated synchronously. This approach is seen in file systems and RDBMSes. Strong consistency works well in systems that need transactions.",CAP Theorem,Mid,https://github.com/donnemartin/system-design-primer#availability-vs-consistency
+What does atomic (or linearizable) consistency mean?  ,"Atomic, or linearizable, consistency is a guarantee about what values it's ok to return when a client performs get() operations. The idea is that the register appears to all clients as though it ran on just one machine, and responded to operations in the order they arrive.",CAP Theorem,Senior,https://github.com/henryr/cap-faq
+What shall you choose when a Partition does occur and why?  ,"According to the CAP theorem, this means we are left with two options: Consistency and Availability.
+CP - Consistency/Partition Tolerance - Wait for a response from the partitioned node which could result in a timeout error. The system can also choose to return an error, depending on the scenario you desire. Choose Consistency over Availability when your business requirements dictate atomic reads and writes.
+AP - Availability/Partition Tolerance - Return the most recent version of the data you have, which could be stale. This system state will also accept writes that can be processed later when the partition is resolved. Choose Availability over Consistency when your business requirements allow for some flexibility around when the data in the system synchronizes. Availability is also a compelling option when the system needs to continue to function in spite of external errors (shopping carts, etc.)",CAP Theorem,Senior,https://robertgreiner.com/cap-theorem-revisited/
+Explain when CA from CAP is possible?  ,"You cannot choose both consistency and availability in a distributed system.
+CA is only possible if you are OK with a monolithic, single server database (maybe with replication but all data on one ""failure block"" - servers are not considered to partially fail).
+If your problem requires scale out, distributed, and multi-server - network partitions can happen - you're already requiring P.",CAP Theorem,Senior,https://stackoverflow.com/questions/12346326/cap-theorem-availability-and-partition-tolerance
+How to choose between CP (consistency) and AP (availability)?,"You need consistency (or what is called a CP database) if the data in the database must always be up to date and aligned, even in the instance of a network failure (eg. the partitioned nodes are unable to communicate with one another for whatever reason).
+Particular use cases where you would prioritize consistency is when you need multiple clients to have the same view of the data. For example, where you’re dealing with financial information, personal information, using a database that gives you consistency and confidence that data you are looking at is up to date in a situation where the network is unreliable or fails.
+You need availability when data accumulation is a priority. In scenarios like these, you will want to capture as much information as possible, but it isn’t critical that the database is constantly up to date. It simply just needs to be accessible and available even when network connections aren’t working.",CAP Theorem,Senior,https://hub.packtpub.com/the-cap-theorem-in-practice-the-consistency-vs-availability-trade-off-in-distributed-databases/
+Is the C in ACID is not the C in CAP? ,"For Database Systems - the Consistency in ACID properties is part of the acronym:
+A - Atomicity
+C - Consistency
+I - Isolation
+D - Durability
+For NoSQL Systems, the Consistency in the CAP Theorem is part of the acronym:
+C - Consistency
+A - Availability
+P - Partition tolerance
+The meanings are slightly different. In short:
+Consistency in ACID means that no dataset may be an invalid state or represents data which are semantically invalid after a transaction is committed (""internal consistency"").
+Consistency in CAP means that after a transaction is executed this dataset must be updated in all replications too.",CAP Theorem,Expert,https://softwareengineering.stackexchange.com/questions/362959/is-the-c-in-acid-is-not-the-c-in-cap
+ Explain what is PACELC Theorem?  ,"PACELC theorem give further detail on what happen when there is no partitioning (i.e., network is healthy). The acronym means if we suffer from network partitioning (P), we have to choose between availability (A) or consistency (C), else (E) we have to choose between latency (L) or consistency (C).
+The whole thesis is assuming we maintain high availability by replication. So when there is failure, CAP theorem prevails. But if not, we still have to consider the tradeoff between consistency and latency of a replicated system. Now we can classify come database systems:
+MySQL cluster: PC+EC, such RDBMS always prioritize for consistency of data
+Amazon DynamoDB: PA+EL, it aimed for fast respond time by trading off consistency of data",CAP Theorem,Expert,https://www.adrian.idv.hk/2019-02-07-pacelc/
