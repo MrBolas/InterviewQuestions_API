@@ -1,30 +1,21 @@
 package main
 
 import (
-	"encoding/csv"
-	"fmt"
 	"log"
-	"os"
+
+	"github.com/MrBolas/InterviewQuestions_API/cmd/parsing"
 )
 
-func readCsvFile(filePath string) [][]string {
-	f, err := os.Open(filePath)
-	if err != nil {
-		log.Fatal("Unable to read input file "+filePath, err)
-	}
-	defer f.Close()
-
-	csvReader := csv.NewReader(f)
-	records, err := csvReader.ReadAll()
-	if err != nil {
-		log.Fatal("Unable to parse file as CSV for "+filePath, err)
-	}
-
-	return records
+var filePaths = []string{"./questions/Interview Questions BE - BE.csv",
+	"./questions/Interview Questions BE - CAP Theorem.csv",
+	"./questions/Interview Questions BE - Concurrency.csv",
+	"./questions/Interview Questions BE - Databases.csv",
 }
 
 func main() {
 
-	records := readCsvFile("../tasks.csv")
-	fmt.Println(records)
+	questions := parsing.ReadQuestionsFromFilePaths(filePaths)
+	log.Println("Loaded", len(questions), "questions.")
+
+	// Post Questions to database
 }
