@@ -3,11 +3,11 @@ package models
 import "github.com/gofrs/uuid"
 
 type QuestionRequest struct {
-	Question string
-	Answer   string
-	Category string
-	Level    string
-	Source   string
+	Question string `json:"question"`
+	Answer   string `json:"answer"`
+	Category string `json:"category"`
+	Level    string `json:"level"`
+	Source   string `json:"source"`
 }
 
 func (req QuestionRequest) ToQuestion() Question {
@@ -32,10 +32,10 @@ func ToListResponse(questions []Question) []QuestionResponse {
 }
 
 type QuestionResponse struct {
-	ID       uuid.UUID
-	Question string
-	Answer   string
-	Category string
-	Level    string
-	Source   string
+	ID       uuid.UUID `json:"id"`
+	Question string    `json:"question"`
+	Answer   string    `json:"answer"`
+	Category string    `json:"category"`
+	Level    string    `json:"level"`
+	Source   string    `json:"source"`
 }
