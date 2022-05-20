@@ -4,6 +4,7 @@ import (
 	"encoding/csv"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/MrBolas/InterviewQuestions_API/cmd/models"
 )
@@ -32,13 +33,18 @@ func readQuestionsFromFilePath(path string) []models.Question {
 	questionsArr := readCsvFile(path)
 
 	// Parse into []models.Question
-	for _, v := range questionsArr {
+	for i, v := range questionsArr {
+
+		// ignore header in csv file
+		if i == 0 {
+			continue
+		}
 
 		questions = append(questions, models.Question{
 			Question: v[0],
 			Answer:   v[1],
-			Category: v[2],
-			Level:    v[3],
+			Category: strings.ToLower(v[2]),
+			Level:    strings.ToLower(v[3]),
 			Source:   v[4],
 		})
 	}
