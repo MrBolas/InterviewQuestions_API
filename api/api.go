@@ -1,10 +1,13 @@
 package api
 
 import (
+	"net/http"
+
 	"github.com/MrBolas/InterviewQuestions_API/handlers"
 	"github.com/MrBolas/InterviewQuestions_API/models"
 	"github.com/MrBolas/InterviewQuestions_API/repositories"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"gorm.io/gorm"
 )
 
@@ -34,11 +37,20 @@ func NewApi(db *gorm.DB) *Api {
 	// Define handlers
 	questionsHandler := handlers.NewQuestionsHandler(QuestionRepository)
 
+	//middleware
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"http://localhost:3000"},
+		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
+	}))
+
 	// Routes
 	e.GET("/question/:id", questionsHandler.GetQuestion)       // GET question by ID
 	e.GET("/questions", questionsHandler.ListQuestions)        // GET question by query params
 	e.POST("/question", questionsHandler.PostQuestion)         // POST new question
 	e.DELETE("/question/:id", questionsHandler.DeleteQuestion) // DELETE question
+
+	e.File("/", "./frontend/interview_questions/out/index.html")
+	e.Static("/_next/static/", "./frontend/interview_questions/out/_next/static/")
 
 	return &Api{
 		echo: e,
