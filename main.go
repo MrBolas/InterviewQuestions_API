@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
+	dsn := "host=localhost user=questions password=secretquestions dbname=questions port=5432 sslmode=disable"
 
 	// initialize db connection
 	db, err := gorm.Open(postgres.New(postgres.Config{DSN: dsn}), &gorm.Config{})
