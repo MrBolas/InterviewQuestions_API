@@ -1,1 +1,1 @@
-web: InterviewQuestions_API
+web: bin/InterviewQuestions_API
