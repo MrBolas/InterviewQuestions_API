@@ -54,7 +54,7 @@ func NewApi(db *gorm.DB) *Api {
 	}
 }
 
-func (api *Api) Start() error {
+func (api *Api) Start(port string) error {
 	// Start server
-	return api.echo.Start(":8080")
+	return api.echo.Start(":" + port)
 }

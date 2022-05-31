@@ -43,11 +43,17 @@ func loadEnvVariables() map[string]string {
 		panic("DB_PORT undefined")
 	}
 
+	svPort, exists := os.LookupEnv("PORT")
+	if !exists {
+		panic("PORT undefined")
+	}
+
 	envVariables["DB_HOST"] = dbHost
 	envVariables["DB_USER"] = dbUser
 	envVariables["DB_PW"] = dbPw
 	envVariables["DB_NAME"] = dbName
 	envVariables["DB_PORT"] = dbPort
+	envVariables["PORT"] = svPort
 
 	return envVariables
 }
@@ -56,7 +62,7 @@ func main() {
 
 	envVar := loadEnvVariables()
 
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", envVar["DB_HOST"], envVar["DB_USER"], envVar["DB_PW"], envVar["DB_NAME"], envVar["DB_PORT"])
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s", envVar["DB_HOST"], envVar["DB_USER"], envVar["DB_PW"], envVar["DB_NAME"], envVar["DB_PORT"])
 
 	// initialize db connection
 	db, err := gorm.Open(postgres.New(postgres.Config{DSN: dsn}), &gorm.Config{})
@@ -66,7 +72,7 @@ func main() {
 
 	// Start API
 	a := api.NewApi(db)
-	err = a.Start()
+	err = a.Start(envVar["PORT"])
 	if err != nil {
 		log.Fatalf("unable to start echo: %v", err)
 	}
