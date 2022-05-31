@@ -39,7 +39,7 @@ func NewApi(db *gorm.DB) *Api {
 
 	//middleware
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"http://localhost:3000"},
+		AllowOrigins: []string{"https://iquestions-app.herokuapp.com/"},
 		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
 	}))
 
@@ -48,9 +48,6 @@ func NewApi(db *gorm.DB) *Api {
 	e.GET("/questions", questionsHandler.ListQuestions)        // GET question by query params
 	e.POST("/question", questionsHandler.PostQuestion)         // POST new question
 	e.DELETE("/question/:id", questionsHandler.DeleteQuestion) // DELETE question
-
-	e.File("/", "./frontend/interview_questions/out/index.html")
-	e.Static("/_next/static/", "./frontend/interview_questions/out/_next/static/")
 
 	return &Api{
 		echo: e,

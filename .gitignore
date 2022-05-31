@@ -4,6 +4,8 @@
 *.dll
 *.so
 *.dylib
+InterviewQuestions_API
+.env
 
 # Test binary, built with `go test -c`
 *.test
