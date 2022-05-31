@@ -39,7 +39,7 @@ func NewApi(db *gorm.DB) *Api {
 
 	//middleware
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"*"},
+		AllowOrigins: []string{"https://iquestions-app.herokuapp.com/"},
 		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
 	}))
 
