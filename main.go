@@ -67,7 +67,7 @@ func main() {
 	// initialize db connection
 	db, err := gorm.Open(postgres.New(postgres.Config{DSN: dsn}), &gorm.Config{})
 	if err != nil {
-		log.Fatalf("unale to connect to database: %v", err)
+		log.Fatalf("unable to connect to database: %v", err)
 	}
 
 	// Start API
