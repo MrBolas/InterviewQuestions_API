@@ -17,13 +17,13 @@ type Api struct {
 
 func NewApi(db *gorm.DB) *Api {
 
-	err := db.AutoMigrate(models.Question{})
+	sqlDB, _ := db.DB()
+	_, err := sqlDB.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";")
 	if err != nil {
 		panic(err)
 	}
 
-	sqlDB, _ := db.DB()
-	_, err = sqlDB.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";")
+	err = db.AutoMigrate(models.Question{})
 	if err != nil {
 		panic(err)
 	}
