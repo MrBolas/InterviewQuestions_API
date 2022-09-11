@@ -12,4 +12,4 @@ RUN go build
 
 EXPOSE 8080
 
-CMD [ ".app/InterviewQuestions_API" ]
+CMD [ "./InterviewQuestions_API" ]
