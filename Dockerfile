@@ -8,8 +8,8 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN go build -o InterviewQuestions_API
+RUN go build
 
 EXPOSE 8080
 
-CMD [ "./InterviewQuestions_API" ]
+CMD [ ".app/InterviewQuestions_API" ]
