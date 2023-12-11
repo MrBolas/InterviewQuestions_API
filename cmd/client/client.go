@@ -20,8 +20,8 @@ func NewQuestionClient() QuestionClient {
 	return QuestionClient{
 		Client: *http.DefaultClient,
 		Url: url.URL{
-			Scheme: "https",
-			Host:   "iquestions-api.herokuapp.com",
+			Scheme: "http",
+			Host:   "localhost:8080",
 		},
 	}
 }
