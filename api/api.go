@@ -44,10 +44,12 @@ func NewApi(db *gorm.DB) *Api {
 	}))
 
 	// Routes
-	e.GET("/question/:id", questionsHandler.GetQuestion)       // GET question by ID
-	e.GET("/questions", questionsHandler.ListQuestions)        // GET question by query params
-	e.POST("/question", questionsHandler.PostQuestion)         // POST new question
-	e.DELETE("/question/:id", questionsHandler.DeleteQuestion) // DELETE question
+	e.GET("/questions/:id", questionsHandler.GetQuestion)       // GET question by ID
+	e.GET("/questions", questionsHandler.ListQuestions)         // GET question by query params
+	e.POST("/questions", questionsHandler.PostQuestion)         // POST new question
+	e.DELETE("/questions/:id", questionsHandler.DeleteQuestion) // DELETE question
+	e.GET("/categories", questionsHandler.ListCategories)       // GET categories
+	e.GET("/levels", questionsHandler.ListLevels)               // GET levels
 
 	return &Api{
 		echo: e,

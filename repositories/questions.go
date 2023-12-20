@@ -12,6 +12,8 @@ type Repository interface {
 	CreateQuestion(q models.Question) (models.Question, error)
 	CountListQuestions(filters QuestionFilters) (int64, error)
 	DeleteQuestionById(id uuid.UUID) error
+	ListCategories() ([]string, error)
+	ListLevels() ([]string, error)
 }
 
 type QuestionRepository struct {
@@ -72,4 +74,26 @@ func (r QuestionRepository) CountListQuestions(filters QuestionFilters) (int64, 
 
 func (r QuestionRepository) DeleteQuestionById(id uuid.UUID) error {
 	return nil
+}
+
+func (r QuestionRepository) ListCategories() ([]string, error) {
+
+	var categories []string
+
+	if err := r.db.Model(&models.Question{}).Select("DISTINCT category").Find(&categories).Error; err != nil {
+		return nil, err
+	}
+
+	return categories, nil
+}
+
+func (r QuestionRepository) ListLevels() ([]string, error) {
+
+	var levels []string
+
+	if err := r.db.Model(&models.Question{}).Select("DISTINCT level").Find(&levels).Error; err != nil {
+		return nil, err
+	}
+
+	return levels, nil
 }

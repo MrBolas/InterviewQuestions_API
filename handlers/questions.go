@@ -89,3 +89,21 @@ func (h *QuestionsHandler) DeleteQuestion(c echo.Context) error {
 
 	return c.NoContent(http.StatusOK)
 }
+
+func (h *QuestionsHandler) ListCategories(c echo.Context) error {
+
+	categories, err := h.repo.ListCategories()
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+	return c.JSON(http.StatusOK, categories)
+}
+
+func (h *QuestionsHandler) ListLevels(c echo.Context) error {
+
+	levels, err := h.repo.ListLevels()
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+	return c.JSON(http.StatusOK, levels)
+}
