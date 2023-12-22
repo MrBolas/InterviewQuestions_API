@@ -5,6 +5,7 @@ import (
 
 	"github.com/MrBolas/InterviewQuestions_API/handlers"
 	"github.com/MrBolas/InterviewQuestions_API/models"
+	"github.com/MrBolas/InterviewQuestions_API/network"
 	"github.com/MrBolas/InterviewQuestions_API/repositories"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -31,11 +32,15 @@ func NewApi(db *gorm.DB) *Api {
 	// Echo instance
 	e := echo.New()
 
+	// Define clients
+	OllamaClient := network.NewOllamaClient()
+
 	// Define repositories
 	QuestionRepository := repositories.NewQuestionRepository(db)
 
 	// Define handlers
 	questionsHandler := handlers.NewQuestionsHandler(QuestionRepository)
+	exercisesHandler := handlers.NewExercisesHandler(OllamaClient)
 
 	//middleware
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
@@ -50,6 +55,7 @@ func NewApi(db *gorm.DB) *Api {
 	e.DELETE("/questions/:id", questionsHandler.DeleteQuestion) // DELETE question
 	e.GET("/categories", questionsHandler.ListCategories)       // GET categories
 	e.GET("/levels", questionsHandler.ListLevels)               // GET levels
+	e.GET("/exercises", exercisesHandler.GenerateExercise)      // GET exercise
 
 	return &Api{
 		echo: e,
